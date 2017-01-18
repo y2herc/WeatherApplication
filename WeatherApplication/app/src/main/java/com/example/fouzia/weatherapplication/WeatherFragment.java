@@ -54,9 +54,11 @@ public class WeatherFragment extends Fragment {
         super.onCreate(savedInstanceState);
         weatherFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/weather.ttf");
         updateWeatherData(new CityPref(getActivity()).getCityPref());
+
     }
 
     private void updateWeatherData(final String city){
+
         new Thread(){
             public void run(){
                 final JSONObject json = RemoteFetch.getJSON(getActivity(), city);
@@ -105,7 +107,7 @@ public class WeatherFragment extends Fragment {
                     json.getJSONObject("sys").getLong("sunset") * 1000);
 
         } catch (Exception e) {
-            Log.e("WeatherApp", "One or more fields not found in the JSON data");
+            Log.d("WeatherApp", "One or more fields not found in the JSON data");
         }
 
     }

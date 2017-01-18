@@ -12,7 +12,7 @@ public class CityPref {
     }
 
     String getCityPref(){
-        return prefs.getString("city","Toronto, CA");
+        return prefs.getString("city","Toronto,CA");
     }
 
     void setCityPref(String city){
